@@ -1,0 +1,217 @@
+///////////////////////////////////////////////////
+경열 인이(가) 예약된 Zoom 회의에 귀하를 초대합니다.
+
+주제: 경열 인의 개인 회의실
+
+Zoom 회의 참가
+https://us05web.zoom.us/j/5066205202?pwd=aG5sY3Z3NTJNbFY3SmF4T3BpdHlFUT09
+
+회의 ID: 506 620 5202
+암호: 1234
+///////////////////////////////////////////
+강사명: 인경열
+이메일: inky4832@daum.net
+github: https://github.com/inky4832
+/////////////////////////////////////
+https://sunnybong.tistory.com/331
+
+
+///////////////////////////////////
+1. 환경설정
+ 
+  가) 크롬브라우저 설치
+  나) 반디집 압축파일 설치
+  다) www.oracle.com 회원가입하기
+  라) https://github.com 회원가입하기
+
+2. 교육과정
+  가)자바
+   - 2주
+  나)SQL
+   - 1주 
+    ==> 미니프로젝트
+  다)Web ( JSP/Servlet)
+    - 2주
+    ==> 미니프로젝트
+    ==> 쇼핑몰
+
+3. 자바 프로그램 개발위한 환경설정
+
+  가. JDK(Java Development Kit) 다운
+    -http://java.oracle.com
+    - Java SE 8u333
+    - 설치는 다음과 같다.
+      C:\Program Files\Java\jdk1.8.0_333 
+      ==>JDK(Java Development Kit)
+      ==> 개발환경 (개발도구 포함 )
+      C:\Program Files\Java\jre1.8.0_333
+      ==> jre(Java Runtime Environment)
+      ==> 실행환경
+
+     *운영체체의 환경변수 설정
+      - 환경변수 확인방법
+      시작 > 오른쪽클릭후 시스템 > 고급시스템 설정 > 환경변수 버튼클릭
+      
+      - 시스템 변수에 다음 2가지 환경변수 설정한다.
+        JAVA_HOME은 설치한 JDK의 홈디렉토리를 의미한다.
+
+        JAVA_HOME=C:\Program Files\Java\jdk1.8.0_333
+
+	PATH는 명령어의 경로를 지정할 때 사용한다.
+	PATH=%JAVA_HOME%\bin;명령어경로;
+
+   나중에 환경변수 설정정보 보기 위해서
+    cmd창에서 확인이 가능하다.
+    c:\>set JAVA_HOME
+    c:\>set PATH
+
+     - PATH 경로의 2가지 명령어
+      가) javac.exe (compiler 명령어)
+         - 컴파일(compile)할 때 사용
+
+      나) java.exe ( interpreter 명령어)
+         - 실행할 때 사용
+
+
+  나. 개발 플랫폼
+     - Java SE ( Java Standard Edition) : 기본환경, 비웹환경
+     - Java EE ( Java Enterprise Edition): 웹환경
+
+  
+  다. 개발도구(IDE)
+     -이클립스(eclipse)
+       http://www.eclipse.org
+       https://www.eclipse.org/downloads/packages/release/2020-03/r
+       Java SE 최적화: Eclipse IDE for Java Developers
+       Java EE 최적화: Eclipse IDE for Enterprise Java Developers
+ 
+      - 한글처리 위한 인코딩 설정: utf-8
+ 
+
+     -인텔리제이	
+       http://www.jetbrains.com
+
+
+4. 이클립스에서 프로젝트 생성
+  
+  * 프로그램 작업순서
+  1) 소스코드 작성
+     Hello.java
+
+  2) javac 컴파일러로 컴파일 실행
+    
+    javac Hello.java  ==> 클래스 파일 생성
+                      ==> Hello.class
+
+  3) java 인터프린터로 실행
+
+    java Hello
+
+  4) 결과출력
+  
+  * JRE System library
+   - 일반 사용자 개발 할때 도움을 줄수 있는 
+     오라클에서 제공하는 클래스 파일(API라고 부른다. 시스템클래스파일)들이다.
+   - 수백의 클래스파일이기 때문에 압축해서 제공한다.
+     (자바에서 압축파일형식: *.jar  , *.war,  *.ear )
+   - API 소스파일: C:\Program Files\Java\jdk1.8.0_333 의 src.zip
+     API 클래스파일: C:\Program Files\Java\jdk1.8.0_333\jre\lib rt.jar
+
+   - API문서: html제공
+   https://docs.oracle.com/javase/8/docs/api/index.html
+
+
+5. 클래스 작성
+
+ - 자바 프로그램의 최소 단위
+ - 반드시 첫글자 대문자, 명사형(권장)
+ - 문법:
+  
+   public class 클래스명{
+        변수
+	메서드
+	생성자
+   }
+
+ -반드시 클래스명과 저장할 파일명 일치해야 된다.
+ -값을 화면에 출력하는 방법은 다음과 같다.
+    System.out.println(값);
+
+ -자바는 대소문자 구별하고 문장의 끝은 반드시 ;(세미코론)끝난다.
+ -이클립스 단축키
+  :한줄 복사: ctrl+ alt + 화살표키
+   한줄 삭졔: crtl+D
+   줄 이동:  alt + 화살표키
+   값출력: sysout 입력후 ctrl + space
+
+
+
+6. main 메서드
+   ==> 시작점(starting point) 역할, 프로그램당 반드시 하나만 존재함.
+   ==> 반드시 public static void main(String[] args){}
+  public class 클래스{
+
+      main메서드{
+      
+      }
+  }
+
+7. 식별자(identifier)
+
+ - 의미? 자바코드의 단어 의미
+ - 식별자 종류 2가지
+  가. 시스템 정의 식별자
+     => 시스템이 미리 정해 놓은 단어(틀리게 사용하면 안됨)
+     => 예약어(키워드)라고 부른다.
+     예> public, protected, private, static, final
+         class, interface, enum, int, byte,short,long,
+	 double, float, boolean, if, for, break, continue,
+	 switch, case, ...
+
+  나. 사용자 정의 식별자
+    => 사용자가 사용할 수 있는 단어
+    ==> 사용자 정의 식별자로 사용가능한 대상은?
+        1)클래스명
+	  - 반드시 첫글자 대문자, 명사형(권장)
+	2)변수명 : 소문자
+	3)메서드명: 소문자
+
+8. 리터럴(literal)
+  - 값(데이터) 의미한다.
+  =>예> 10
+        3.15
+	'A', '남'
+	"홍길동"
+	true false
+	null
+
+9. 데이터 종류 ( 데이터 타입 ) =>(*******)
+  ==> 자바가 인식 가능한 데이터 의미한다.
+  가. 기본형 데이터 ( primitive data type )
+     1) 수치형
+              - 정수형: byte ( 1byte )
+	              short ( 2byte )
+		       int  ( 4byte )-기본
+		       long ( 8byte )
+                => 리터럴 표현식은 10
+	      - 실수형 : float ( 4byte )
+	               double ( 8byte )-기본
+                => 리터럴 표현식은 3.14
+
+     2) 문자형 : char ( 2byte, 캐릭터)
+              => 문자열이 아님. 자바는 문자와 문자열을 다르게 처리함.
+	      => 하나의 문자
+             => 리터럴 표현식은 'A'  '남'
+	      주의할점은 "A"(참조형) 와 'A'(기본형)는 다르다.
+
+     3) 논리형 : boolean (1byte, 불린)
+             => 리터럴 표현식은 true/false
+
+ ==> 총 8개가 제공된다.
+
+  나. 참조형 데이터 ( reference data type)
+ 
+   ==> 기본형이 아닌 데이터(정수,실수,문자,논리형이 아닌 나머지 데이터)
+
+
+ 
