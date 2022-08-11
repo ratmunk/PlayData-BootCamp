@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.dept.DeptMapper">
+  
+  <select id="list" resultType="Dept">
+      select deptno, dname, loc
+      from dept
+      order by deptno desc
+  </select>
+
+  <select id="selectByDeptno" 
+      resultType="Dept"  parameterType="int">
+ 	 <![CDATA[
+ 	    select deptno, dname, loc
+        from dept
+         where deptno < #{deptno}
+         order by deptno desc 
+      ]]>        
+  </select>
+  <select id="selectByDeptnoAndDname" 
+      resultType="Dept"  parameterType="Dept">
+ 	 <![CDATA[
+ 	    select deptno, dname, loc
+        from dept
+         where deptno < #{deptno} and dname = #{dname}
+         order by deptno desc 
+      ]]>        
+  </select>
+  <select id="selectByDeptnoAndDnameMap" 
+      resultType="Dept"  parameterType="hashmap">
+ 	 <![CDATA[
+ 	    select deptno, dname, loc
+        from dept
+         where deptno < #{xxx} and dname = #{yyy}
+         order by deptno desc 
+      ]]>        
+  </select>
+  <select id="listPage"
+   resultType="Dept">
+	      select deptno, dname, loc
+	      from dept
+	      order by deptno desc
+  </select>
+  
+  <select id="selectOneByDeptno" 
+          resultType="Dept" parameterType="int">
+	      select deptno, dname, loc
+	      from dept
+	      where deptno = #{deptno}
+  </select>
+  
+  <insert id="deptInsert" 
+  parameterType="com.dto.DeptDTO">
+     insert into dept ( deptno, dname, loc )
+     values ( #{deptno}, #{dname}, #{loc} )
+  </insert>
+   <insert id="deptInsertMap" 
+      parameterType="hashmap">
+     insert into dept ( deptno, dname, loc )
+     values ( #{x}, #{y}, #{z} )
+  </insert>
+  
+  <update id="deptUpdate"
+    parameterType="Dept">
+    update dept 
+    set dname =#{dname}, loc=#{loc}
+    where deptno = #{deptno}
+  </update>
+  
+  <delete id="deleteByDeptno" parameterType="int">
+     delete from dept
+     where deptno = #{deptno}
+  </delete>
+  
+    <delete id="deleteByDeptnoOrDname"
+     parameterType="Dept">
+     delete from dept
+     where deptno = #{deptno} or dname=#{dname}
+  </delete>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

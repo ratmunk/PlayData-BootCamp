@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.emp.EmpMapper">
+  
+   <select id="selectByEmpnoDynamic"
+      resultType="Emp" parameterType="Emp">
+     select empno, ename, sal
+     from emp
+     where sal > 2000
+     <if test="empno != 0">
+       and empno = #{empno}
+     </if>
+   </select>
+   
+   <!-- 
+   
+       조건: job =='CLERK'  sal > 1500 
+       조건: job =='SALESMAN' sal > 2500
+       조건: 모두 만족 안하면    sal > 2900
+      
+       -->
+     <select id="selectByJobChoose2"
+        parameterType="hashmap" resultType="Emp">
+        select empno, ename, sal
+        from emp
+       <choose>
+		    <when test="job == 'CLERK'">
+		      where sal > 1500
+		    </when>
+		    <when test="job == 'SALESMAN'">
+		      where sal > 2500
+		    </when>
+		    <otherwise>
+		      where sal > 2900
+		    </otherwise>
+       </choose>
+      </select>
+        <select id="selectByJobChoose"
+        parameterType="hashmap" resultType="Emp">
+        select empno, ename, sal
+        from emp
+        <where>
+	       <choose>
+			    <when test="job == 'CLERK'">
+			       sal > 1500
+			    </when>
+			    <when test="job == 'SALESMAN'">
+			       sal > 2500
+			    </when>
+			    <otherwise>
+			       sal > 2900
+			    </otherwise>
+	       </choose>
+       </where>
+      </select>  
+      
+      
+      <select id="selectBySqlWhereDynamic"
+      resultType="Emp" parameterType="Emp">
+        select empno, ename, sal
+        from emp
+        <where>
+	        <if test="sal != 0">
+	            sal > #{sal}
+	        </if>
+        </where>
+      </select>
+      
+      <update id="updateSalorEnameIfNecessary"
+        parameterType="Emp">
+  		update emp
+	    <set>
+	      <if test="sal != 0">sal=#{sal},</if>
+	      <if test="ename != null">ename=#{ename}</if>
+	    </set>
+  	    where empno=#{empno}
+       </update>
+      
+       <!--  다중 insert 문 -->
+       <insert id="deptMultiInsert" 
+         parameterType="arraylist">
+          insert all
+          <foreach item="item" index="index" collection="list">
+             into dept (deptno,dname,loc)
+             values (#{item.deptno}, #{item.dname}, #{item.loc})
+          </foreach>
+          select * from dual 
+       </insert>
+      
+      <delete id="deptMultiDelete" parameterType="arraylist">
+         delete 
+         from dept
+         <where>
+           deptno IN
+            <foreach item="item" index="index" collection="list"
+        			open="(" separator="," close=")">
+          		#{item.deptno}
+    		</foreach>
+         </where>
+      </delete>
+      <delete id="deptMultiDelete2" parameterType="arraylist">
+         delete 
+         from dept
+         <where>
+           dname IN
+            <foreach item="item" index="index" collection="list"
+        			open="(" separator="," close=")">
+          		#{item}
+    		</foreach>
+         </where>
+      </delete>
+ </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
