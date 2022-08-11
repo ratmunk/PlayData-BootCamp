@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.mybatis.example.BlogMapper">
+  
+  <select id="list" resultType="com.dto.DeptDTO">
+      select deptno, dname, loc
+      from dept
+      order by deptno desc
+  </select>
+
+  <select id="selectByDeptno" 
+      resultType="com.dto.DeptDTO"  parameterType="int">
+ 	 <![CDATA[
+ 	    select deptno, dname, loc
+        from dept
+         where deptno < #{deptno}
+         order by deptno desc 
+      ]]>        
+  </select>
+  <select id="selectByDeptnoAndDname" 
+      resultType="com.dto.DeptDTO"  parameterType="com.dto.DeptDTO">
+ 	 <![CDATA[
+ 	    select deptno, dname, loc
+        from dept
+         where deptno < #{deptno} and dname = #{dname}
+         order by deptno desc 
+      ]]>        
+  </select>
+  <select id="selectByDeptnoAndDnameMap" 
+      resultType="com.dto.DeptDTO"  parameterType="hashmap">
+ 	 <![CDATA[
+ 	    select deptno, dname, loc
+        from dept
+         where deptno < #{xxx} and dname = #{yyy}
+         order by deptno desc 
+      ]]>        
+  </select>
+  
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
