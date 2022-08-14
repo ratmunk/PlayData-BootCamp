@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mybatis.board.BoardMapper">
+  
+  <select id="totalRecord" resultType="int"
+      parameterType="hashmap">
+    select count(*)
+    from board
+    <if test="searchName == 'title' and searchValue != null">
+         where title LIKE '%'||#{searchValue}||'%' 
+      </if>
+      <if test="searchName == 'author' and searchValue != null">
+         where author LIKE '%'||#{searchValue}||'%' 
+      </if>    
+  </select>
+  
+  <select id="list" resultType="Board"
+      parameterType="hashmap">
+      select num, title, author, content, 
+             to_char(writeday, 'YYYY/MM/dd') as writeday , readcnt
+      from board
+      <if test="searchName == 'title' and searchValue != null">
+         where title LIKE '%'||#{searchValue}||'%' 
+      </if>
+      <if test="searchName == 'author' and searchValue != null">
+         where author LIKE '%'||#{searchValue}||'%' 
+      </if>
+      order by num desc
+  </select>
+
+  <insert id="write" parameterType="Board">
+     insert into board (num, title, author, content)
+     values ( board_seq.nextval, #{title} , #{author}, #{content})
+   </insert>
+ 
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
