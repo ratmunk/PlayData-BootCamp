@@ -1,0 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+에러발생되었습니다.<br>
+<a href="../list">홈페이지로</a><br>
+<a href="/app13/list">홈페이지로</a><br>
+</body>
+</html>
