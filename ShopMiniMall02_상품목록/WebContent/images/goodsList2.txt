@@ -1,0 +1,74 @@
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<table width="100%" cellspacing="0" cellpadding="0">
+
+	<tr>
+		<td>
+			<table align="center" width="710" cellspacing="0" cellpadding="0"
+				border="0">
+				
+				<tr>
+					<td height="5"></td>
+				</tr>
+				<tr>
+					<td height="1" colspan="8" bgcolor="CECECE"></td>
+				</tr>
+				<tr>
+					<td height="10"></td>
+				</tr>
+
+				<tr>
+				
+<!-- 반복시작 -->
+						<td>
+							<table style='padding:15px'>
+								<tr>
+									<td>
+										<a href="GoodsRetrieveServlet?gCode=T1"> 
+											<img src="images/items/top1.gif" border="0" align="center" width="200">
+										</a>
+									</td>
+								</tr>
+								<tr>
+								
+									<td height="10">
+								</tr>
+								<tr>
+									<td class= "td_default" align ="center">
+										<a class= "a_black" href=""> 
+										앨리스 데님 탑<br>
+										</a>
+										<font color="gray">
+										 --------------------
+										</font>
+									</td>
+									
+								</tr>
+								<tr>
+									<td height="10">
+								</tr>
+								<tr>
+									<td class="td_gray" align ="center">
+										빈티지한 느낌의 데님 프릴 슬리브스 탑
+									</td>
+								</tr>
+								<tr>
+									<td height="10">
+								</tr>
+								<tr>
+									<td class="td_red" align ="center"><font color="red"><strong>
+									1000	</strong></font></td>
+								</tr>
+							</table>
+						</td>
+<!-- 반복끝-->
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td height="10">
+	</tr>
+</table>
